@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<a class="btn btn-primary mb-3" href="/add">Adicionar Tarefa</a>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Título</th>
+            <th>Descrição</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for tarefa in tarefas %}
+        <tr>
+            <td>{{ tarefa.id }}</td>
+            <td>{{ tarefa.titulo }}</td>
+            <td>{{ tarefa.descricao }}</td>
+            <td>
+                <a class="btn btn-sm btn-warning" href="/edit/{{ tarefa.id }}">Editar</a>
+                <a class="btn btn-sm btn-danger" href="/delete/{{ tarefa.id }}">Excluir</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
